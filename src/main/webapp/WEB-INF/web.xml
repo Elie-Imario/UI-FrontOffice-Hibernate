@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+            <include-prelude>/WEB-INF/TagLib.jsp</include-prelude>
+        </jsp-property-group>
+    </jsp-config>
+
+    <servlet>
+        <servlet-name>ProfServlet</servlet-name>
+        <servlet-class>com.ui.UI_frontOffice.servlet.ProfServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SalleServlet</servlet-name>
+        <servlet-class>com.ui.UI_frontOffice.servlet.SalleServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OccuperServlet</servlet-name>
+        <servlet-class>com.ui.UI_frontOffice.servlet.OccuperServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProfServlet</servlet-name>
+        <url-pattern>/Professeur</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SalleServlet</servlet-name>
+        <url-pattern>/Salle</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OccuperServlet</servlet-name>
+        <url-pattern>/Occuper</url-pattern>
+    </servlet-mapping>
+</web-app>

@@ -1,0 +1,101 @@
+@import url("./variable.css");
+@import url("../vendor/fonts/fonts.css");
+
+.sider-bar-side{
+    width: 270px;
+    position: fixed;
+    top: 5px;
+    bottom: 5px;
+    left: 15px;
+    background: var(--bgColor-2);
+    box-shadow: 0 10px 20px 2px rgba(3, 79, 117, 0.6);
+    border-radius: 22px;
+    border: 2px solid rgba(255, 255, 255,.2);
+
+}
+.sider-bar-side .sidebar{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.sidebar .sidebar-collapse .sidebar-brand{
+    width: 100%;
+    text-align: center;
+    padding: 1.75rem .5rem;
+    color: var(--text-2);
+    font-family: "Urbanist-Semibold";
+    border-bottom: solid 1px rgba(255, 255, 255,.2);
+}
+
+.sidebar .sidebar-collapse .sidebar-nav{
+    padding: 1.5rem;
+    display: flex;
+    justify-content:left;
+    flex-direction: column;
+}
+
+.sidebar-nav li{
+    list-style-type: none;
+}
+
+
+.link-container{
+    margin-top: 1.5rem;
+}
+
+
+.sidebar-nav-title-item span ,.sidebar .sidebar-nav-item a.sidebar-nav-link{
+    font-size: 16px;
+    font-family: "Urbanist-Semibold";
+    
+}
+.sidebar-nav-link{
+    opacity: 0.7;
+}
+.sidebar-nav-link.active-link{
+    opacity: 1;
+}
+
+.sidebar-nav-title-item span .fa,.sidebar .sidebar-nav-item a.sidebar-nav-link .fa{
+    font-size: 22px;
+    vertical-align: middle;
+}
+
+.sidebar .sidebar-nav-title-item{
+    padding: .5rem;
+}
+
+.sidebar .sidebar-nav-item{
+    padding: 1rem .5rem;
+}
+.sidebar-nav-title-item{
+    border: 1px solid #fff;
+    border-radius: 44px;
+    background: var(--bgColor-1);
+}
+
+.sidebar-nav-title-item .bi{
+    font-size: 1.75rem;
+    vertical-align: middle;
+}
+
+.sidebar-nav-item{
+    margin: .5rem;
+}
+
+.sidebar-nav-title-item span{
+    color: var(--text-1);
+}
+
+.sidebar-nav-item a{
+    color: var(--text-2);
+    text-decoration: none;
+}
+
+
+.sidebar-nav-item a:hover{
+    color: var(--text-2);
+}

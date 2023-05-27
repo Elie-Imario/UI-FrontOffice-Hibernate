@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/UI-frontOffice.iml" filepath="$PROJECT_DIR$/UI-frontOffice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../core-backOffice/core-backOffice.iml" filepath="$PROJECT_DIR$/../core-backOffice/core-backOffice.iml" />
+    </modules>
+  </component>
+</project>
