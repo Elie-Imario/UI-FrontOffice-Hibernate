@@ -284,7 +284,6 @@
     transform: translate(-15%, -50%);
     z-index: 9999;
     width: 400px;
-    background: #fff;
 }
 
 .container-input100.hide{
@@ -293,6 +292,7 @@
 
 
 .wrap-form100 {
+    background: #fff;
     padding: 44px 35px;
     border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 5px;
@@ -479,24 +479,57 @@ span.close-btn i {
     color: #4CAF50;
 }
 
-
-/**Inout-error**/
+/**Input-error**/
 
 .alert-wrapper{
     color: rgb(235, 28, 28);
     width: 100%;
-    text-align: center;
-    display: block;
-    margin-bottom: 25px;
     opacity: 0;
-    transition: opacity 0.5s ease-in;
+    flex: 0;
+    transition: all 0.45s ease-out;
 }
 
-.alert-wrapper.show{
+.alert-wrapper.not_collapse{
     opacity: 1;
+    flex: 1;
 }
 
-.error-msg{
-    font-family: "Poppins-Regular";
-    font-size: 15px;
+.error, .globalerror-container{
+    text-align: center;
+    padding: 10px;
+    display: none;
+}
+.error.show, .globalerror-container.show{
+    display: block;
+}
+
+.error-msg, .globalerror-msg{
+    font-family: "Urbanist-Semibold";
+    font-size: 14px;
+}
+
+.incorrect{
+    transform: scale(1);
+    border: 2px solid rgb(235, 28, 28);
+    box-shadow: 0 1px 5px 0 #dc3545, 0 3px 5px 0 #dc3545;
+}
+
+
+@keyframes bounce-in {
+    0%{
+        transform: scale(1);
+    }
+    25%{
+
+        transform: scale(1.1);
+    }
+    50%{
+        transform: scale(1);
+    }
+    75%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
 }

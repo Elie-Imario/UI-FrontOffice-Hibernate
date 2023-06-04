@@ -45,7 +45,6 @@
     <script src="vendor/DataTables/dataTables.dateTime.min.js"></script>
     <script src="vendor/datePicker/dateformat.min.js"></script>
     <script src="vendor/datePicker/bootstrap-datepicker.js"></script>
-    <script src="js/script_occuper.js"></script>
 
     <title>Hibernate-Dashoboard</title>
 </head>

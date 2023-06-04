@@ -104,10 +104,16 @@
                                 Ajouter un Professeur
                             </span>
                         </div>
-                        <form action="" class="add-prof-form m-t-30">
+                        <div class="add-prof-form m-t-30">
                             <div class="wrap-input100">
                                 <label for="input100-Nom">Nom</label>
                                 <input type="text" class="input100 m-t-10" id="input100-Nom" placeholder="John" name="firstnameProfToAdd">
+                                <div class="alert-wrapper">
+                                    <div class="error">
+                                        <i class="fa fa-exclamation-circle"></i>
+                                        <span class="error-msg"></span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="wrap-input100">
                                 <label for="input100-prenom">Prénom</label>
@@ -122,6 +128,12 @@
                                     <option value="Vacataire">Vacataire</option>
                                 </select>
                             </div>
+                            <div class="alert-wrapper global-error">
+                                <div class="globalerror-container">
+                                    <i class="fa fa-exclamation-circle"></i>
+                                    <span class="globalerror-msg"></span>
+                                </div>
+                            </div>
                             <div class="button_group m-t-30">
                                 <button class="btn-form primary-btn" id="confirm_submit_prof" type="button">
                                     <i class="fa fa-save"></i>
@@ -132,7 +144,7 @@
                                     Annuler
                                 </button>
                             </div>
-                        </form>
+                        </div>
                     </div>                    
                 </div>
                 <!---->
@@ -145,11 +157,17 @@
 
                             </span>
                         </div>
-                        <form action="" class="edit-prof-form m-t-30">
+                        <div class="edit-prof-form m-t-30">
                             <input type="hidden" name="IdProf">
                             <div class="wrap-input100">
                                 <label for="input100-Nom_">Nom</label>
                                 <input type="text" class="input100 m-t-10" id="input100-Nom_" placeholder="John" name="firstnameProfToEdit">
+                                <div class="alert-wrapper">
+                                    <div class="error">
+                                        <i class="fa fa-exclamation-circle"></i>
+                                        <span class="error-msg"></span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="wrap-input100">
                                 <label for="input100-prenom_">Prénom</label>
@@ -164,6 +182,12 @@
                                     <option value="Vacataire">Vacataire</option>
                                 </select>
                             </div>
+                            <div class="alert-wrapper global-error">
+                                <div class="globalerror-container">
+                                    <i class="fa fa-exclamation-circle"></i>
+                                    <span class="globalerror-msg"></span>
+                                </div>
+                            </div>
                             <div class="button_group m-t-30">
                                 <button class="btn-form primary-btn" id="confirm_edit_prof" type="button">
                                     <i class="fa fa-save"></i>
@@ -174,7 +198,7 @@
                                     Annuler
                                 </button>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
                 <!---->

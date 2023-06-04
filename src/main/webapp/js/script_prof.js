@@ -5,7 +5,6 @@ $(document).ready(function(){
         "oLanguage": {
             "sUrl": "vendor/DataTables/dt-config-fr.txt"
         },
-        "bDestroy": true
     })
 
 
@@ -14,26 +13,42 @@ $(document).ready(function(){
     })
 
     $('#cancel_add_prof').on('click', function(){
+        clearInputForm()
+        clearInputClassError()
+        fadeAlertMsg()
+        fadeGlobalAlertMsg()
         closeModal(".container-input100.addModalPopUp")
     })
 
     $('.close-add-popup').on('click', function(){
+        clearInputForm()
+        clearInputClassError()
+        fadeAlertMsg()
+        fadeGlobalAlertMsg()
         closeModal(".container-input100.addModalPopUp")
     })
 
     $('.close-edit-popup').on('click', function () {
+        clearInputClassError()
+        fadeAlertMsg()
+        fadeGlobalAlertMsg()
         closeModal(".container-input100.editModalPopUp")
     })
 
     $('#cancel_edit_prof').on('click', function () {
+        clearInputForm()
+        clearInputClassError()
+        fadeAlertMsg()
+        fadeGlobalAlertMsg()
         closeModal(".container-input100.editModalPopUp")
     })
 
-    $('.dropdown-toggle').on('click', function(){
-        //showDropDownMenu()
-    })
 
     $(".close-btn").click(function () {
+        clearInputForm()
+        clearInputClassError()
+        fadeAlertMsg()
+        fadeGlobalAlertMsg()
         closeAlert()
     })
 
@@ -45,8 +60,10 @@ $(document).ready(function(){
         let firstname_input = $("input[name='firstnameProfToAdd']")
         let lastname_input = $("input[name='lastnameProfToAdd']")
         let grade_select = $("select[name='gradeProfToAdd']")
+        let datas = dataTableToArray($(".tablelisteProf").DataTable())
 
-        addProf(firstname_input, lastname_input, grade_select)
+        if(isFormValid(firstname_input) && isValueCorrect(firstname_input,lastname_input,datas)) addProf(firstname_input, lastname_input, grade_select)
+        else console.log("error")
     })
 
     $('#confirm_edit_prof').on('click', function () {
@@ -54,12 +71,18 @@ $(document).ready(function(){
         let newlastname_input = $("input[name='lastnameProfToEdit']")
         let newgrade_select = $("select[name='gradeProfToEdit']")
 
-        updateLecteur(newfirstname_input, newlastname_input, newgrade_select)
+        let IndexProfToExclude = $("input[name='IdProf']").val()
+
+        let datas = generateNewArrayFromExpectedId(IndexProfToExclude, dataTableToArray($(".tablelisteProf").DataTable()))
+        console.log(datas)
+
+        if(isFormValid(newfirstname_input) && isValueCorrect(newfirstname_input,newlastname_input,datas)) updateLecteur(newfirstname_input, newlastname_input, newgrade_select)
+        else console.log("error")
+
     })
 
     //RECHERCHE
     $("#searchProf_btn").click(function(){
-        console.log("click")
         let searchParams = []
         searchParams.push($("input[name='id_prof_for_search']").val(), $("input[name='name_prof_for_search']").val())
         $(".tablelisteProf").DataTable().column(0).search(searchParams[0]).column(1).search(searchParams[1]).draw()
@@ -121,10 +144,7 @@ function addProf(_firstname_input, _lastname_input, _grade_select){
                     })
                     closeModal(".container-input100.addModalPopUp");
                     getTotalProf()
-                    let inputs = $("input")
-                    for(let i=0; i<inputs.length; i++){
-                        inputs[i].value = ""
-                    }
+                    clearInputForm()
                     showAlert(response.sucessMsg)
                 }
             })
@@ -270,6 +290,124 @@ function closeAlert(){
     $(".alert-success").addClass("disappered")
 }
 
+
+/* input error */
+function isValueCorrect(input1, input2, datas){
+    clearInputClassError()
+
+    let errorWrapper = $(".alert-wrapper.global-error")
+    let errorcontainer = $(".globalerror-container")
+    let errorMsg = $(".globalerror-msg")
+
+    if(ifexists(input1.val().toLowerCase(), input2.val().toLowerCase(), datas)){
+        animateForm(input1)
+        animateForm(input2)
+
+        displayErrorMsg(errorWrapper, errorcontainer, errorMsg, "un professeur ayant les mêmes informations existe deja")
+
+        return false
+    }else{
+        return true
+    }
+}
+
+
+function isFormValid(input1){
+    clearInputClassError()
+    fadeAlertMsg()
+    fadeGlobalAlertMsg()
+
+    let errorWrapper = $(".alert-wrapper")
+    let errorcontainer = $(".error")
+    let errorMsg = $(".error-msg")
+
+    if(input1.val() == ""){
+        animateForm(input1)
+        displayErrorMsg(errorWrapper, errorcontainer, errorMsg, "Veuillez renseigner le nom du professeur!")
+        return false
+    }else{  
+        return true
+    }
+}
+
+
+function ifexists(firstname, lastname, datas){
+    for (const data of datas) {
+        if(data.firstname === firstname && data.lastname === lastname){
+            return true
+        }
+    }
+    return false
+}
+
+function dataTableToArray(dataTable) {
+    let rows = dataTable.rows().data().toArray()
+    let dataArray = []
+
+    for (let i = 0; i < rows.length; i++) {
+      dataArray.push({id: rows[i][0],firstname: rows[i][1].toLowerCase(), lastname:rows[i][2].toLowerCase()})
+    }
+    return dataArray;
+}
+
+function generateNewArrayFromExpectedId(id, datas){
+    let newArray = []
+    $.each(datas, (index,data)=>{
+        if(id != data.id){
+            newArray.push({id: data.id, firstname: data.firstname, lastname:data.lastname})
+        }
+    })
+    return newArray
+}
+
+
+
+
+function animateForm(input){
+    input.addClass("incorrect")
+    input.css('animation', "bounce-in 1.15s ease")
+    input.on('animationend', function(){
+        input.css('animation', "")
+    })
+}
+
+function clearInputClassError(){
+    const inputs = $("input")
+    if(inputs.hasClass("incorrect")){
+        inputs.removeClass("incorrect")
+        inputs.css('animation', "")
+    }
+}
+
+function displayErrorMsg(container, errorcontainer, errorMsg, msg){
+    container.addClass("not_collapse")
+    errorcontainer.addClass('show')
+    errorMsg.text(msg)
+    $(".not_collapse").parent().addClass("m-b-0")
+}
+
+function fadeAlertMsg(){
+    if($(".alert-wrapper").hasClass("not_collapse") && $(".error").hasClass("show")){
+        $(".not_collapse").parent().removeClass("m-b-0")
+        $(".alert-wrapper").removeClass("not_collapse")
+        $(".error").removeClass("show")
+    }
+}
+
+function fadeGlobalAlertMsg(){
+    if($(".alert-wrapper.global-error").hasClass("not_collapse") && $(".globalerror-container").hasClass("show")){
+        $(".not_collapse").parent().removeClass("m-b-0")
+        $(".alert-wrapper.global-error").removeClass("not_collapse")
+        $(".globalerror-container").removeClass("show")
+    }
+}
+
+function clearInputForm(){
+    let inputs = $("input")
+    for(let i=0; i<inputs.length; i++){
+        inputs[i].value = ""
+    }
+}
 
 
 

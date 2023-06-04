@@ -38,49 +38,7 @@
             </div>
             <!--  -->
 
-            <!-- Filtre avancée -->
-            <!-- <div class="filtreAvance-section m-t-50 limiter" id="accordion_search_prof" role="tablist" aria-multiselectable="true">
-                <div class="filtreAvance-content">
-                    <div class="ico-accordion"><span><i class="fa fa-search"></i></span></div>
-                    <div class="heading-content" role="tab" id="headingOne">
-                        <h4 class="content-title">
-                            <a role="button" data-toggle="collapse" data-parent="#accordion_search_prof" href="#search_prof"
-                            aria-expanded="true" aria-controls="collapseOne" title="Afficher/Masquer les filtres"
-                            class="accordion-title collapsed">
-                                <i class="fa fa-angle-up"></i>
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="search_prof" class="content-body collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <form class="accordion-form" id="search_prof_form">
-                            <div class="field-row">
-                                <div class="wrap-input100">
-                                    <label for="input100-username">Code Prof</label>
-                                    <input type="text" name="username" class="input100 m-t-15" id="input100-username" placeholder="P-0105/23">
-                                </div>
-                                <div class="wrap-input100">
-                                    <label for="input100-email">Nom du Prof</label>
-                                    <input type="email" name="email" class="input100 m-t-15" id="input100-email" placeholder="John...">
-                                </div>
-                            </div>
-                            <div class="button_group m-t-20">
-                                <button class="btn-form primary-btn" id="searchBook" type="button"
-                                        title="Rechercher">
-                                    <i class="fa fa-search"></i>
-                                    Rechercher
-                                </button>
-                                <button type="reset" class="btn-form secondary-btn" id="reinitialiserOuvrageSearch"
-                                        title="Réinitialiser">
-                                    <i class="fa fa-times"></i>
-                                    Réinitialiser
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div> -->
-            <!---->
-
+            
             <div class="modal-limiter">
                 <div class="overlay"></div>
                 <!-- Add-form-popup -->
@@ -98,16 +56,40 @@
                             <div class="wrap-input100">
                                 <label for="input100-NomProf_qui_va_occuper">Nom</label>
                                 <input type="text" class="input100 m-t-10" id="input100-NomProf_qui_va_occuper" placeholder="ecrire ici..." name="ProfFirstNameToAdd">
+                                <div class="alert-wrapper">
+                                    <div class="error">
+                                        <i class="fa fa-exclamation-circle"></i>
+                                        <span class="error-msg"></span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="wrap-input100">
                                 <label for="input100-salle_a_occuper">Salle à occuper</label>
                                 <input type="text" class="input100 m-t-10" id="input100-salle_a_occuper" placeholder="ecrire ici..." name="SalleDesignationToAdd">
+                                <div class="alert-wrapper">
+                                    <div class="error">
+                                        <i class="fa fa-exclamation-circle"></i>
+                                        <span class="error-msg"></span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="wrap-input100">
                                 <label for="input100-date_occupation">Date d'occupation</label>
                                 <div class="input_group m-t-10">
                                     <input type="text" class="input100" id="input100-date_occupation" placeholder="Date d'occupation"  name="date_occupationToAdd">
                                     <span class="input-group-addon"><i class="fa fa-calendar-days"></i></span>
+                                </div>
+                                <div class="alert-wrapper">
+                                    <div class="error">
+                                        <i class="fa fa-exclamation-circle"></i>
+                                        <span class="error-msg"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="alert-wrapper global-error">
+                                <div class="globalerror-container">
+                                    <i class="fa fa-exclamation-circle"></i>
+                                    <span class="globalerror-msg"></span>
                                 </div>
                             </div>
                             <div class="button_group m-t-30">
@@ -137,20 +119,45 @@
                             <input type="hidden" name="Code_R">
                             <input type="hidden" name="idProf_qui_occupe">
                             <input type="hidden" name="idSalle_occupe">
+                            <input type="hidden" name="nom_prof">
                             <input type="hidden" name="Prenom_prof">
                             <div class="wrap-input100">
                                 <label for="input100-NomProf_qui_va_occuper_">Nom</label>
-                                <input type="text" class="input100 m-t-10" id="input100-NomProf_qui_va_occuper_" placeholder="ecrire ici..." name="profFirstname" disabled>
+                                <input type="text" class="input100 m-t-10" id="input100-NomProf_qui_va_occuper_" placeholder="ecrire ici..." name="profname" disabled>
+                                <div class="alert-wrapper">
+                                    <div class="error">
+                                        <i class="fa fa-exclamation-circle"></i>
+                                        <span class="error-msg"></span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="wrap-input100">
                                 <label for="input100-salle_a_occuper_">Salle à occuper</label>
                                 <input type="text" class="input100 m-t-10" id="input100-salle_a_occuper_" placeholder="ecrire ici..." name="SalleDesignationToEdit">
+                                <div class="alert-wrapper">
+                                    <div class="error">
+                                        <i class="fa fa-exclamation-circle"></i>
+                                        <span class="error-msg"></span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="wrap-input100">
                                 <label for="input100-date_occupation_">Date d'occupation</label>
                                 <div class="input_group m-t-10">
                                     <input type="text" class="input100" id="input100-date_occupation_" placeholder="Date d'occupation" name="date_occupationToEdit">
                                     <span class="input-group-addon"><i class="fa fa-calendar-days"></i></span>
+                                </div>
+                                <div class="alert-wrapper">
+                                    <div class="error">
+                                        <i class="fa fa-exclamation-circle"></i>
+                                        <span class="error-msg"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="alert-wrapper global-error">
+                                <div class="globalerror-container">
+                                    <i class="fa fa-exclamation-circle"></i>
+                                    <span class="globalerror-msg"></span>
                                 </div>
                             </div>
                             <div class="button_group m-t-30">

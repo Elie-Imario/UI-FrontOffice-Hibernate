@@ -37,47 +37,6 @@
             </div>
             <!--  -->
 
-            <!-- Filtre avancée -->
-            <!-- <div class="filtreAvance-section m-t-50 limiter" id="accordion_search_prof" role="tablist" aria-multiselectable="true">
-                <div class="filtreAvance-content">
-                    <div class="ico-accordion"><span><i class="fa fa-search"></i></span></div>
-                    <div class="heading-content" role="tab" id="headingOne">
-                        <h4 class="content-title">
-                            <a role="button" data-toggle="collapse" data-parent="#accordion_search_prof" href="#search_prof"
-                            aria-expanded="true" aria-controls="collapseOne" title="Afficher/Masquer les filtres"
-                            class="accordion-title collapsed">
-                                <i class="fa fa-angle-up"></i>
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="search_prof" class="content-body collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <form class="accordion-form" id="search_prof_form">
-                            <div class="field-row">
-                                <div class="wrap-input100">
-                                    <label for="input100-username">Code Prof</label>
-                                    <input type="text" name="username" class="input100 m-t-15" id="input100-username" placeholder="johndoe">
-                                </div>
-                                <div class="wrap-input100">
-                                    <label for="input100-email">Nom du Prof</label>
-                                    <input type="email" name="email" class="input100 m-t-15" id="input100-email" placeholder="johndoe@gmail.com">
-                                </div>
-                            </div>
-                            <div class="button_group m-t-20">
-                                <button class="btn-form primary-btn" id="searchBook" type="button"
-                                        title="Rechercher">
-                                    <i class="fa fa-search"></i>
-                                    Rechercher
-                                </button>
-                                <button type="reset" class="btn-form secondary-btn" id="reinitialiserOuvrageSearch"
-                                        title="Réinitialiser">
-                                    <i class="fa fa-times"></i>
-                                    Réinitialiser
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div> -->
             <!---->
             <!-- Alert Section -->
             <div class="alert-container">
@@ -144,10 +103,16 @@
                                 Ajouter une Salle
                             </span>
                         </div>
-                        <form action="" class="add-salle-form m-t-30">
+                        <div class="add-salle-form m-t-30">
                             <div class="wrap-input100">
                                 <label for="input100-designation">Designation</label>
                                 <input type="text" class="input100 m-t-10" id="input100-designation" placeholder="....." name="DesignationToAdd">
+                                <div class="alert-wrapper">
+                                    <div class="error">
+                                        <i class="fa fa-exclamation-circle"></i>
+                                        <span class="error-msg"></span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="button_group m-t-30">
                                 <button class="btn-form primary-btn" id="confirm_add_salle" type="button">
@@ -159,7 +124,7 @@
                                     Annuler
                                 </button>
                             </div>
-                        </form>
+                        </div>
                     </div>                    
                 </div>
 
@@ -172,11 +137,17 @@
 
                             </span>
                         </div>
-                        <form action="" class="add-salle-form m-t-30">
+                        <div class="add-salle-form m-t-30">
                             <input type="hidden" name="IdSalle">
                             <div class="wrap-input100">
                                 <label for="input100-designation_">Designation</label>
                                 <input type="text" class="input100 m-t-10" id="input100-designation_" placeholder="....."  name="DesignationToEdit">
+                                <div class="alert-wrapper">
+                                    <div class="error">
+                                        <i class="fa fa-exclamation-circle"></i>
+                                        <span class="error-msg"></span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="button_group m-t-30">
                                 <button class="btn-form primary-btn" id="confirm_edit_salle" type="button">
@@ -188,7 +159,7 @@
                                     Annuler
                                 </button>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
