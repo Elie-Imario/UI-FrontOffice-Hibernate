@@ -73,7 +73,7 @@ $(document).ready(function(){
 
         let IndexProfToExclude = $("input[name='IdProf']").val()
 
-        let datas = generateNewArrayFromExpectedId(IndexProfToExclude, dataTableToArray($(".tablelisteProf").DataTable()))
+        let datas = generateNewArrayFromExpectedId("PR-"+IndexProfToExclude, dataTableToArray($(".tablelisteProf").DataTable()))
         console.log(datas)
 
         if(isFormValid(newfirstname_input) && isValueCorrect(newfirstname_input,newlastname_input,datas)) updateLecteur(newfirstname_input, newlastname_input, newgrade_select)
@@ -135,7 +135,7 @@ function addProf(_firstname_input, _lastname_input, _grade_select){
                                     '<button type="button" class="option-btn-item" onclick="initUpdateProf('+ response.id_prof +')"><span><i class="fa fa-edit"></i></span></button>'+
                                     '<button type="button" class="option-btn-item" onclick="deleteProf('+ response.id_prof +')"><span><i class="fa fa-trash"></i></span></button>'+
                                     '</div>'
-                                let data = [response.id_prof, response.nom, response.prenom, response.grade, _options]
+                                let data = ["PR-"+response.id_prof, response.nom, response.prenom, response.grade, _options]
 
                                 $(".tablelisteProf").dataTable().fnAddData(data)
                                 $(".tablelisteProf tbody tr:first").attr('id', 'row'+response.id_prof)
@@ -201,7 +201,7 @@ function updateLecteur(_newFirstnameinput, _newlastnameinput, _newgradeselect){
                         '<button type="button" class="option-btn-item" onclick="initUpdateProf('+IndexProfToUpdate+')"><span><i class="fa fa-edit"></i></span></button>'+
                         '<button type="button" class="option-btn-item" onclick="deleteProf('+IndexProfToUpdate+')"><span><i class="fa fa-trash"></i></span></button>'+
                         '</div>'
-                    let newData = [IndexProfToUpdate,_newFirstnameinput.val(),_newlastnameinput.val(),_newgradeselect.val(),options]
+                    let newData = ["PR-"+IndexProfToUpdate,_newFirstnameinput.val(),_newlastnameinput.val(),_newgradeselect.val(),options]
 
                     $(".tablelisteProf").DataTable().row(row).data(newData).draw(false)
                     closeModal(".container-input100.editModalPopUp")

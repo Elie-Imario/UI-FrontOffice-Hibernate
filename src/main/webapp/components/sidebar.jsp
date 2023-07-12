@@ -8,7 +8,7 @@
             <div class="sidebar-brand"><span>Hibernate</span></div>
             <ul class="sidebar-nav">
                 <li class="sidebar-nav-title-item">
-                    <span class="m-l-10"><i class="bi bi-layout-text-window-reverse"></i><span class="m-l-15">Dashoboard</span></span>
+                    <span class="m-l-10"><i class="bi bi-layout-text-window-reverse"></i><span class="m-l-15">Dashboard</span></span>
                 </li>
                 <div class="link-container">
                     <li class="sidebar-nav-item">

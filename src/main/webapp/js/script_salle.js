@@ -54,7 +54,7 @@ $(document).ready(function(){
         let newdesignation_input = $("input[name='DesignationToEdit']")
         let IndexSalleToExclude = $("input[name='IdSalle']").val()
 
-        let datas = generateNewArrayFromExpectedId(IndexSalleToExclude, dataTableToArray($(".tablelisteSalle").DataTable()))
+        let datas = generateNewArrayFromExpectedId("S-"+IndexSalleToExclude, dataTableToArray($(".tablelisteSalle").DataTable()))
         
         console.log(datas)
         
@@ -99,7 +99,7 @@ function addSalle(_designation_input){
                                     '<button type="button" class="option-btn-item" onclick="initUpdateSalle('+ response.id_Salle +')"><span><i class="fa fa-edit"></i></span></button>'+
                                     '<button type="button" class="option-btn-item" onclick="deleteSalle('+ response.id_Salle +')"><span><i class="fa fa-trash"></i></span></button>'+
                                     '</div>'
-                                let data = [response.id_Salle,response.designation,_options]
+                                let data = ["S-"+response.id_Salle,response.designation,_options]
 
                                 $(".tablelisteSalle").dataTable().fnAddData(data)
                                 $(".tablelisteSalle tbody tr:first").attr('id', 'row'+response.id_Salle)
@@ -159,7 +159,7 @@ function updateSalle(_newDesignationinput){
                         '<button type="button" class="option-btn-item" onclick="initUpdateSalle('+IndexSalleToUpdate+')"><span><i class="fa fa-edit"></i></span></button>'+
                         '<button type="button" class="option-btn-item" onclick="deleteSalle('+IndexSalleToUpdate+')"><span><i class="fa fa-trash"></i></span></button>'+
                         '</div>'
-                    let newData = [IndexSalleToUpdate,_newDesignationinput.val(),options]
+                    let newData = ["S-"+IndexSalleToUpdate,_newDesignationinput.val(),options]
 
                     $(".tablelisteSalle").DataTable().row(row).data(newData).draw(false)
                     closeModal(".container-input100.editModalPopUp")

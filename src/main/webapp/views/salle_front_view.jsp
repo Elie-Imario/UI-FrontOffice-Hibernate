@@ -74,7 +74,7 @@
                         <tbody class="table-border-bottom-0">
                             <c:forEach items="${salles}" var="salle">
                             <tr id="row<c:out value="${salle.id_Salle}"></c:out>">
-                                <td><c:out value="${salle.id_Salle}"></c:out></td>
+                                <td>S-<c:out value="${salle.id_Salle}"></c:out></td>
                                 <td><c:out value="${salle.designation}"></c:out></td>
                                 <td>
                                     <div class="options">

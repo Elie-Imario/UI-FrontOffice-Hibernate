@@ -231,7 +231,7 @@
                         <tbody class="table-border-bottom-0">
                             <c:forEach items="${professeurs}" var="professeur">
                             <tr id="row<c:out value="${professeur.id_prof}"></c:out>">
-                                <td><c:out value="${professeur.id_prof}"></c:out></td>
+                                <td>PR-<c:out value="${professeur.id_prof}"></c:out></td>
                                 <td><c:out value="${professeur.nom}"></c:out></td>
                                 <td><c:out value="${professeur.prenom}"></c:out></td>
                                 <td><c:out value="${professeur.grade}"></c:out></td>

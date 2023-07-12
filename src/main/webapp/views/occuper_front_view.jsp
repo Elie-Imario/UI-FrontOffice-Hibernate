@@ -202,7 +202,7 @@
                         <table class="table table-striped table-bordered table-condensed tablelistereservation">
                             <thead>
                                 <tr>
-                                    <th>CODE_R</th>
+                                    <th>CODE_O</th>
                                     <th>Nom</th>
                                     <th>Prenom</th>
                                     <th>Salle Occupée</th>
@@ -213,7 +213,7 @@
                             <tbody class="table-border-bottom-0">
                                 <c:forEach items="${reservations}" var="reservation">
                                 <tr id="row<c:out value="${reservation[0]}"></c:out>">
-                                    <td><c:out value="${reservation[0]}"></c:out></td>
+                                    <td>CO-<c:out value="${reservation[0]}"></c:out></td>
                                     <td><c:out value="${reservation[1]}"></c:out></td>
                                     <td><c:out value="${reservation[2]}"></c:out></td>
                                     <td><c:out value="${reservation[3]}"></c:out></td>

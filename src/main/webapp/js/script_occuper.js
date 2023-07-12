@@ -101,7 +101,7 @@ $(document).ready(function(){
 
         let Code_R_toExclude = $("input[name='Code_R']").val()
 
-        let datas = generateNewArrayFromExpectedId(Code_R_toExclude, dataTableToArray($(".tablelistereservation").DataTable()))
+        let datas = generateNewArrayFromExpectedId("CO-"+Code_R_toExclude, dataTableToArray($(".tablelistereservation").DataTable()))
 
         console.log(datas)
         if(isFormValid(prof_name_edit,designation_salle_edit,dateOccupation_input_edit)){
@@ -246,7 +246,7 @@ function reserverSalle(_IdprofInput,_IdSalleInput,_dateOccupation_input) {
                                     '<button type="button" class="option-btn-item" onclick="deleteBooking('+ response[0] +')"><span><i class="fa fa-trash"></i></span></button>'+
                                     '</div>'
 
-                                let data = [response[0], response[1], response[2], response[3], new Date(response[4]).format("dd/mm/yyyy"), _options]
+                                let data = ["CO-"+response[0], response[1], response[2], response[3], new Date(response[4]).format("dd/mm/yyyy"), _options]
 
                                 $(".tablelistereservation").dataTable().fnAddData(data)
                                 $(".tablelistereservation tbody tr:first").attr('id', 'row'+response[0])
@@ -343,7 +343,7 @@ function updateBooking(_newId_Salle, _newDateOcc){
                         '<button type="button" class="option-btn-item" onclick="initUpdateBooking('+IndexOccToUpdate+')"><span><i class="fa fa-edit"></i></span></button>'+
                         '<button type="button" class="option-btn-item" onclick="deleteBooking('+IndexOccToUpdate+')"><span><i class="fa fa-trash"></i></span></button>'+
                         '</div>'
-                    let newData = [IndexOccToUpdate,profFirstname,profLastName,salleDesignation,_newDateOcc,options]
+                    let newData = ["CO-"+IndexOccToUpdate,profFirstname,profLastName,salleDesignation,_newDateOcc,options]
 
                     $(".tablelistereservation").DataTable().row(row).data(newData).draw(false)
                     closeModal(".container-input100.editModalPopUp")
